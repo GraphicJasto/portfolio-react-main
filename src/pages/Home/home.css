@@ -1,0 +1,43 @@
+.figtitle {
+    font-family: 'Inter', sans-serif;
+    font-size: 24px;
+    font-weight: 600;
+    color: #000;
+    letter-spacing: -0.03em;
+    margin-bottom: 16px;
+}
+
+.home-content {
+  padding: 16px;
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  z-index: 1;
+}
+
+.home-content p {
+  margin-bottom: 16px;
+}
+
+.home-content h1 {
+  margin-bottom: 16px;
+}
+
+.home-content h2 {
+  margin-bottom: 24px;
+}
+
+.home-buttons {
+  margin-top: 20px;
+  display: flex;
+  gap: 10px;
+  padding-bottom: 20px;
+}
+
+.element-with-low-z-index {
+  z-index: 5;
+}

@@ -1,0 +1,136 @@
+/*De-styling default components*/
+
+* {
+  margin: 0;
+  padding: 0;
+  image-rendering: crisp-edges;
+  -webkit-font-smoothing: antialiased;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+  -webkit-tap-highlight-color: transparent;
+}
+
+button {
+  border: none;
+}
+
+li {
+  list-style: none;
+}
+
+html, body {
+  height: 100%;
+  width: 100%;
+  background-color: var( --md-sys-color-surface-container-low);
+  margin: 0;
+  padding: 0;
+  overflow: hidden; /* This stays hidden to prevent body scrolling */
+}
+
+/* Add this selector to ensure scrollable elements work properly */
+.pane-content, .home-content, [class*="-content"] {
+  overflow-y: auto;
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
+  will-change: scroll-position;
+  overscroll-behavior: contain;
+}
+
+.App { /*Full Width & Height Static App Container*/
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-flow: row nowrap;
+}
+
+/*Navbar styles in Navbar.css / Navigation on the page*/
+
+/*mainCointainer styles in MainContainer.css / Content on the page*/
+
+@media (max-aspect-ratio: 4/5) {
+  .App{
+    display: flex;
+    flex-flow: column-reverse nowrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+    height: 80%;
+  }
+
+  .MainContainer .Pane {
+    width: 100%; /* Full width */
+    background: white;
+    z-index: 100; /* Make sure it's above other content */
+  }
+}
+
+.grain {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  pointer-events: none;
+  z-index: 300;
+  transform: translateZ(0);
+}
+
+/* Scrollbar styles */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+  display: block !important;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(128, 128, 128, 0.4);
+  border-radius: 100px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(128, 128, 128, 0.6);
+}
+
+.Bttn {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 100px;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+  outline: none;
+}
+
+.topAppBar {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: space-between;
+}
+
+h1 {
+  margin-bottom: 20px;
+}
+
+/* Elements with potential z-index need to be updated */
+/* Updating applicable z-index related elements */
+
+/* Find the modal or notification elements with z-index: 100 */
+.notification, 
+.modal-container,
+.dropdown-menu,
+.tooltip,
+.popup {
+  z-index: 90; /* Normalized value - high enough for overlays but below the main overlay */
+}
+
+/* Find elements with z-index: 300 (likely tooltips or popups) */
+.tooltip-content,
+.context-menu,
+.dropdown-content {
+  z-index: 80; /* Normalized value */
+}
+
